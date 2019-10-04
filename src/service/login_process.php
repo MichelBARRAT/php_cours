@@ -1,7 +1,9 @@
 <?php
 require_once __DIR__ . "../../Db/function.php";
-require_once __DIR__ . "../../Utils.php";
-require_once __DIR__ . "../../session.php";
+require_once __DIR__ . "../../../vendor/autoload.php";
+
+use App\Utils;
+use App\Session;
 
 try {
     $pdo = getPdoInstance();
