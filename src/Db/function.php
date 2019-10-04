@@ -1,16 +1,7 @@
 <?php
-
 require_once __DIR__ . "/../../config/db.php";
 
-/**
- * Creats and returns a new PDO instance based on the given parameters.
- * 
- * @param string $dsn
- * @param string $user
- * @param string $pass
- * @return PDO
- * @throws PDOException throw if connection failed
- */
+
 function getPdoInstance(): PDO
 {
     $dsn = DSN;
@@ -22,4 +13,44 @@ function getPdoInstance(): PDO
         throw $e;
     }
     return $pdo;
+}
+
+function login($login, $password)
+{
+    global $pdo;
+    $query = "SELECT * FROM users WHERE email=:login AND pass=:password";
+    $statement = $pdo->prepare($query);
+    $statement->execute(
+        array(
+            'login' => $login,
+            'password' => $password
+        )
+    );
+    return $statement->rowCount() >= 1 ? true : false;
+}
+
+function getUsers()
+{
+    global $pdo;
+    if ($pdo !== null) {
+        try {
+            return $pdo->query('SELECT * from users');
+        } catch (PDOException $e) {
+            print "Erreur !: " . $e->getMessage() . "<br/>";
+            die();
+        }
+    }
+}
+
+function contact($email, $message)
+{
+    global $pdo;
+    $query = "INSERT INTO `contact`(`email`, `message`) VALUES (:email,:message)";
+    $statement = $pdo->prepare($query);
+    $statement->execute(
+        array(
+            'email' => $email,
+            'message' => $message
+        )
+    );
 }

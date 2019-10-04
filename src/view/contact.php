@@ -1,7 +1,7 @@
-<?php require_once "templates/header.php"; ?>
-<?php require_once "templates/nav.php"; ?>
+<?php require_once __DIR__."/../../templates/header.php"; ?>
+<?php require_once  __DIR__."/../../templates/nav.php"; ?>
 <div class="container-fluid">
-    <form action="contact_process.php" method="POST">
+    <form action="../service/contact_process.php" method="POST">
         <div class="form-group col-lg-2">
             <label for="exampleInputEmail1">Email</label>
             <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -15,4 +15,4 @@
     </form>
 
 </div>
-<?php require_once "templates/footer.php"; ?>
+<?php require_once  __DIR__."/../../templates/footer.php"; ?>

@@ -1,12 +1,12 @@
-<?php require_once "templates/header.php"; ?>
-<?php require_once "templates/nav.php"; ?>
+<?php require_once __DIR__ . "/../../templates/header.php"; ?>
+<?php require_once __DIR__ . "/../../templates/nav.php"; ?>
 <div class="container">
   <div class="row">
     <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
       <div class="card card-signin my-5">
         <div class="card-body">
           <h5 class="card-title text-center">Sign In</h5>
-          <form action="login_process.php" method="post" class="form-signin">
+          <form action="../service/login_process.php" method="post" class="form-signin">
             <div class="form-label-group">
               <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
               <label for="inputEmail">Email address</label>
@@ -28,4 +28,4 @@
     </div>
   </div>
 </div>
-<?php require_once "templates/footer.php"; ?>
+<?php require_once __DIR__ . "/../../templates/footer.php"; ?>

@@ -1,5 +1,5 @@
-<?php require_once "templates/header.php"; ?>
-<?php require_once "templates/nav.php"; ?>
+<?php require_once __DIR__ . "/../../templates/header.php"; ?>
+<?php require_once __DIR__ . "/../../templates/nav.php"; ?>
 <div class="container">
     <div class="row my-2">
         <div class="col-lg-8 order-lg-2">
@@ -41,4 +41,4 @@
         </div>
     </div>
 </div>
-<?php require_once "templates/footer.php"; ?>
+<?php require_once __DIR__ . "/../../templates/footer.php"; ?>

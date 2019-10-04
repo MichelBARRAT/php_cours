@@ -1,6 +1,6 @@
 <?php
-require_once "config/db.php";
-require_once "src/Db/function.php";
+require_once __DIR__ . "/../../../config/db.php";
+require_once __DIR__ . "/../../Db/function.php";
 
 try {
     $pdo = getPdoInstance(DSN, USER, PASS);
@@ -9,7 +9,7 @@ try {
     die;
 }
 
-$res = $pdo->query('SELECT * FROM users');
+$res = getUsers();
 while ($row = $res->fetch(PDO::FETCH_ASSOC)) {
     var_dump($row);
 }
