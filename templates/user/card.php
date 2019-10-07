@@ -1,11 +1,8 @@
 <div class="card" style="min-width: 200px;">
     <img src="Default.png" class="card-img-top" alt="Profile pic">
     <div class="card-body">
-        <h5 class="card-title">
-            <?php echo $profile['prenom']; ?>
-        </h5>
         <p class="card-text">
-            <?php echo $profile['login']; ?>
+            <?php echo $profile['email']; ?>
         </p>
         <?php
         $badgeClass = ($profile['active'] ? "success" : "danger");

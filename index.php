@@ -1,22 +1,17 @@
-<?php require_once "data/users.php";
+<?php require_once "vendor/autoload.php";
 require_once "templates/header.php";
 require_once "templates/nav.php";
-require_once "vendor/autoload.php";
 
-use App\Session;
-$session = Session::getInstance(); ?>
+use App\Provider\UserDbProvider;
+use App\Provider\UserFileProvider;
+use App\Service\UserService;
+use App\View; 
 
+$userService = new UserService(new UserDbProvider());
 
-<div class="container fluid">
-  <div class="row">
-    <div class="w-100 d-flex flex-row justify-content-around align-items-center">
-      <?php foreach ($users as $profile) {
-        require "templates/user/card.php";
-      } ?>
-    </div>
-    <li class="badge badge-<?php echo isset($session->isLogged) ? 'success' : 'danger' ?>">
-      <?php echo isset($session->isLogged) && $session->isLogged ? "Logged" : "Not Logged"; ?>
-    </li>
-  </div>
-</div>
-<?php require_once "templates/footer.php"; ?>
+echo View::render(
+  "templates/user/list.php",
+  ["users" => $userService->findAll()]
+);
+
+require_once "templates/footer.php"; ?>
